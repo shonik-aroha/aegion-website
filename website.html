@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aegion — Your Team Builds. Aegion Handles Support.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #F1AC5F;
+  --pink: #DDB1CF;
+  --blue: #B0D0F0;
+  --black: #0C0C0D;
+  --white: #FFFFFF;
+  --surface: #FAFAF8;
+  --muted: #6B6B6B;
+  --muted2: #ABABAB;
+  --border: #E8E8E4;
+  --border2: #D8D8D2;
+  --acumen: linear-gradient(135deg, #F1AC5F 0%, #DDB1CF 50%, #B0D0F0 100%);
+  --acumen-soft: linear-gradient(135deg, rgba(241,172,95,0.15) 0%, rgba(221,177,207,0.12) 50%, rgba(176,208,240,0.15) 100%);
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+  --w: 1100px;
+  --r: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--white); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+
+.wrap { max-width: var(--w); margin: 0 auto; padding: 0 36px; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  height: 60px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-i {
+  max-width: var(--w); margin: 0 auto; padding: 0 36px;
+  height: 100%; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--serif); font-size: 20px; letter-spacing: -0.01em;
+}
+.nav-logo-mark {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--acumen);
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-logo-mark svg { width: 18px; height: 18px; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 13.5px; color: var(--muted); font-weight: 400; transition: color .2s; }
+.nav-links a:hover { color: var(--black); }
+.nav-end { display: flex; gap: 10px; align-items: center; }
+.btn-ghost {
+  font-size: 13.5px; font-weight: 500; color: var(--muted);
+  padding: 7px 16px; border-radius: 100px; border: 1.5px solid var(--border2);
+  transition: all .2s; cursor: pointer; font-family: var(--sans);
+}
+.btn-ghost:hover { color: var(--black); border-color: #aaa; }
+.btn-primary {
+  font-size: 13.5px; font-weight: 600; color: var(--white);
+  background: var(--black);
+  padding: 8px 20px; border-radius: 100px;
+  transition: all .2s; cursor: pointer; border: none; font-family: var(--sans);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-primary:hover { background: #2a2a2a; }
+
+/* ── HERO ── */
+.hero {
+  padding: 88px 0 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+}
+.hero-inner { position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  padding: 5px 16px 5px 10px;
+  font-size: 12.5px; color: var(--muted);
+  margin-bottom: 28px;
+  font-family: var(--sans);
+}
+.badge-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #34d058; box-shadow: 0 0 8px rgba(52,208,88,0.5);
+  animation: pulse 2s infinite; flex-shrink: 0;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.6;transform:scale(1.3);} }
+.badge-tag {
+  background: rgba(241,172,95,0.18); color: #c4780a;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 2px 9px; border-radius: 100px; font-family: var(--sans);
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+h1 em { font-style: italic; }
+.hero-sub {
+  font-size: 17px; color: var(--muted); max-width: 520px;
+  margin: 0 auto 36px; line-height: 1.65; font-weight: 400;
+}
+.hero-ctas { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 48px; }
+.hero-cta-primary {
+  font-size: 14px; font-weight: 600; color: var(--white);
+  background: var(--black);
+  padding: 12px 26px; border-radius: 100px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .2s; font-family: var(--sans);
+}
+.hero-cta-primary:hover { background: #2a2a2a; transform: translateY(-1px); }
+.hero-cta-ghost {
+  font-size: 14px; font-weight: 500; color: var(--muted);
+  padding: 12px 26px; border-radius: 100px;
+  border: 1.5px solid var(--border2);
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .2s; font-family: var(--sans);
+}
+.hero-cta-ghost:hover { color: var(--black); border-color: #aaa; }
+
+/* Hero metrics strip */
+.hero-metrics {
+  display: inline-flex; align-items: center; gap: 0;
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+  margin-bottom: 36px;
+  box-shadow: 0 2px 12px rgba(12,12,13,0.06);
+}
+.hero-metric { padding: 14px 28px; text-align: center; border-right: 1px solid var(--border); }
+.hero-metric:last-child { border-right: none; }
+.hero-metric-num { font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--orange); line-height: 1; letter-spacing: -0.01em; }
+.hero-metric-label { font-size: 11px; color: var(--muted2); margin-top: 3px; }
+
+/* sits-on-top tabs */
+.sits-row { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 40px; }
+.sits-label { font-size: 12px; color: var(--muted2); }
+.sits-tabs { display: flex; gap: 6px; }
+.sits-tab {
+  padding: 6px 16px; border-radius: 100px;
+  border: 1.5px solid var(--border2);
+  background: var(--white);
+  font-size: 12.5px; font-weight: 500; color: var(--muted);
+  cursor: pointer; transition: all .2s; display: flex; align-items: center; gap: 6px;
+  font-family: var(--sans);
+}
+.sits-tab:hover { border-color: #aaa; color: var(--black); }
+.sits-tab.active { background: var(--black); border-color: var(--black); color: var(--white); }
+.sits-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+/* ── HERO MOCK ── */
+.hero-mock {
+  max-width: 900px; margin: 0 auto;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 24px 80px rgba(12,12,13,0.12), 0 4px 16px rgba(12,12,13,0.06);
+}
+.mock-bar {
+  background: #F0F0EE; border-bottom: 1px solid var(--border);
+  padding: 11px 18px; display: flex; align-items: center; gap: 10px;
+}
+.mock-dots { display: flex; gap: 6px; }
+.mock-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.mock-dots span:nth-child(1) { background: #FF5F57; }
+.mock-dots span:nth-child(2) { background: #FFBD2E; }
+.mock-dots span:nth-child(3) { background: #28C840; }
+.mock-title { font-size: 11px; color: var(--muted2); margin-left: 4px; font-family: var(--sans); }
+.mock-panels { display: block; position: relative; }
+.mock-panel { overflow: hidden; display: none; transition: opacity .25s ease; }
+.mock-panel.active { display: block; }
+
+/* ─── SLACK UI ─── */
+.slack-wrap { display: flex; font-family: var(--sans); }
+.slack-sidebar {
+  width: 220px; background: #3F0F40; flex-shrink: 0;
+  display: flex; flex-direction: column; padding: 12px 0;
+}
+.slack-ws { padding: 0 14px 10px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 10px; }
+.slack-ws-name { font-size: 13px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 5px; }
+.slack-ws-name::after { content: '⌄'; font-size: 10px; color: rgba(255,255,255,0.5); }
+.slack-status { font-size: 10px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 4px; }
+.slack-status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #2BAC76; flex-shrink: 0; }
+.slack-sec-title { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5); padding: 0 14px; margin-bottom: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+.slack-ch {
+  padding: 3px 14px; font-size: 12.5px; color: rgba(255,255,255,0.65);
+  display: flex; align-items: center; gap: 6px; cursor: pointer; border-radius: 4px; margin: 0 6px;
+}
+.slack-ch:hover { background: rgba(255,255,255,0.1); }
+.slack-ch.active { background: #1164A3; color: #fff; }
+.slack-ch-hash { color: rgba(255,255,255,0.45); font-size: 13px; font-weight: 400; }
+.slack-ch-badge { margin-left: auto; background: #CD2553; color: #fff; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 100px; }
+.slack-main { flex: 1; display: flex; flex-direction: column; background: var(--white); overflow: hidden; }
+.slack-header {
+  padding: 10px 16px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.slack-header-ch { font-size: 14px; font-weight: 700; color: var(--black); display: flex; align-items: center; gap: 5px; }
+.slack-header-ch::before { content: '#'; color: var(--muted2); }
+.slack-header-desc { font-size: 11px; color: var(--muted2); }
+.slack-msgs { flex: 1; overflow-y: auto; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; }
+.slack-msg { display: flex; gap: 9px; align-items: flex-start; }
+.slack-av {
+  width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: #fff;
+}
+.slack-msg-body { flex: 1; }
+.slack-msg-meta { display: flex; align-items: baseline; gap: 7px; margin-bottom: 2px; }
+.slack-msg-name { font-size: 12.5px; font-weight: 700; color: var(--black); }
+.slack-msg-time { font-size: 10px; color: var(--muted2); }
+.slack-ai-tag { background: rgba(241,172,95,0.2); color: #c4780a; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 3px; letter-spacing: 0.03em; }
+.slack-msg-text { font-size: 12.5px; color: #1D1C1D; line-height: 1.5; }
+.slack-link { color: #1264A3; text-decoration: underline; cursor: pointer; }
+.slack-resolved {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(45,179,95,0.08); border: 1px solid rgba(45,179,95,0.25);
+  border-radius: 5px; padding: 3px 8px; margin-top: 6px;
+  font-size: 10px; font-weight: 600; color: #2D7A3A;
+}
+.slack-input {
+  padding: 10px 14px; border-top: 1px solid var(--border);
+  display: flex; align-items: center; gap: 9px;
+}
+.slack-input-box {
+  flex: 1; border: 1px solid var(--border); border-radius: 8px;
+  padding: 7px 12px; font-size: 12px; color: var(--muted2); background: var(--white);
+}
+.slack-input-send {
+  width: 28px; height: 28px; background: #007A5A; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.slack-input-send svg { width: 14px; height: 14px; fill: white; }
+
+/* ─── WHATSAPP UI ─── */
+.wa-wrap { display: flex; flex-direction: column; font-family: var(--sans); }
+.wa-header {
+  background: #075E54; padding: 10px 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.wa-back { color: rgba(255,255,255,0.7); font-size: 18px; cursor: pointer; }
+.wa-av {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #25D366; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.wa-hinfo { flex: 1; }
+.wa-hname { font-size: 13.5px; font-weight: 600; color: #fff; }
+.wa-hstatus { font-size: 11px; color: rgba(255,255,255,0.65); }
+.wa-hicons { display: flex; gap: 16px; color: rgba(255,255,255,0.8); font-size: 16px; cursor: pointer; }
+.wa-bg {
+  flex: 1; overflow-y: auto; padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ddd' fill-opacity='0.12'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-color: #ECE5DD;
+}
+.wa-date-sep { text-align: center; }
+.wa-date-chip { display: inline-block; background: rgba(255,255,255,0.9); border-radius: 100px; padding: 3px 12px; font-size: 10px; color: #667781; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+.wa-bubble { max-width: 82%; padding: 7px 10px 4px; border-radius: 8px; font-size: 12.5px; line-height: 1.5; position: relative; }
+.wa-bubble.in { background: #fff; color: #111; border-radius: 0 8px 8px 8px; align-self: flex-start; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+.wa-bubble.out { background: #D9FDD3; color: #111; border-radius: 8px 0 8px 8px; align-self: flex-end; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+.wa-sender { font-size: 11px; font-weight: 700; color: #075E54; margin-bottom: 2px; }
+.wa-time { font-size: 10px; color: #A0A0A0; text-align: right; margin-top: 2px; display: flex; align-items: center; justify-content: flex-end; gap: 3px; }
+.wa-ticks { color: #4FC3F7; font-size: 12px; }
+.wa-input {
+  background: #F0F2F5; padding: 8px 12px;
+  display: flex; align-items: center; gap: 9px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.wa-input-box {
+  flex: 1; background: #fff; border: none; border-radius: 100px;
+  padding: 8px 16px; font-size: 12.5px; color: var(--muted2); outline: none;
+  font-family: var(--sans);
+}
+.wa-send-btn {
+  width: 38px; height: 38px; background: #075E54; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; cursor: pointer;
+}
+.wa-send-btn svg { width: 16px; height: 16px; fill: white; margin-left: 2px; }
+
+/* ─── EMAIL UI ─── */
+.email-wrap { display: flex; font-family: var(--sans); }
+.email-sidebar { width: 220px; background: #F6F8FC; border-right: 1px solid var(--border); padding: 16px 0; flex-shrink: 0; }
+.email-sidebar-head { padding: 0 16px 14px; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
+.email-sidebar-title { font-size: 18px; font-weight: 700; color: #1f1f1f; margin-bottom: 2px; }
+.email-sidebar-addr { font-size: 11px; color: var(--muted2); }
+.email-nav-item { padding: 7px 16px; border-radius: 100px; font-size: 13px; color: #444; cursor: pointer; margin: 0 8px 2px; display: flex; justify-content: space-between; align-items: center; }
+.email-nav-item.active { background: #D3E3FD; font-weight: 600; color: #1a73e8; }
+.email-nav-badge { background: #1a73e8; color: #fff; font-size: 9px; padding: 1px 6px; border-radius: 100px; font-weight: 700; }
+.email-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.email-thread-header { padding: 14px 20px; border-bottom: 1px solid var(--border); background: var(--white); }
+.email-subject { font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+.email-meta { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+.email-resolved-tag { background: #e8f4e8; color: #2d7a3a; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+.email-ai-tag { background: rgba(241,172,95,0.2); color: #c4780a; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 3px; }
+.email-body { flex: 1; overflow-y: auto; padding: 20px; }
+.email-customer-msg { font-size: 13.5px; color: #333; line-height: 1.7; margin-bottom: 16px; }
+.email-reply-row { display: flex; align-items: flex-start; gap: 10px; }
+.email-reply-av { width: 30px; height: 30px; border-radius: 50%; background: #F1AC5F; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #000; flex-shrink: 0; }
+.email-reply-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.email-reply-name { font-size: 13px; font-weight: 700; color: var(--black); }
+.email-reply-time { font-size: 11px; color: var(--muted2); margin-left: auto; }
+.email-reply-body { font-size: 13px; color: #333; line-height: 1.7; }
+.email-resolved-badge { display: inline-flex; align-items: center; gap: 5px; background: rgba(45,179,95,0.08); border: 1px solid rgba(45,179,95,0.2); border-radius: 5px; padding: 4px 10px; font-size: 10px; font-weight: 600; color: #2d7a3a; margin-top: 10px; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.cursor-blink { display: inline-block; width: 2px; height: 13px; background: #1a73e8; border-radius: 1px; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 1px; }
+
+/* ─── HELPDESK UI ─── */
+.hd-wrap { display: flex; font-family: var(--sans); }
+.hd-icon-bar { width: 64px; background: #1F1F2E; display: flex; flex-direction: column; align-items: center; padding: 14px 0; gap: 16px; flex-shrink: 0; }
+.hd-icon-btn { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; color: rgba(255,255,255,0.4); cursor: pointer; }
+.hd-icon-btn.active { background: #FF5733; color: #fff; }
+.hd-list { width: 240px; background: #fff; border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
+.hd-list-header { padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 14px; font-weight: 700; color: var(--black); }
+.hd-inbox-badge { background: #FF5733; color: #fff; font-size: 9px; padding: 1px 6px; border-radius: 100px; font-weight: 700; margin-left: 4px; }
+.hd-conv { padding: 12px 16px; border-bottom: 1px solid var(--border); cursor: pointer; }
+.hd-conv.active { background: #FFF4F1; border-left: 3px solid #FF5733; }
+.hd-conv-top { display: flex; justify-content: space-between; margin-bottom: 2px; }
+.hd-conv-name { font-size: 12.5px; font-weight: 700; color: var(--black); }
+.hd-conv-time { font-size: 10px; color: var(--muted2); }
+.hd-conv-preview { font-size: 11.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hd-conv-status { font-size: 10px; font-weight: 600; margin-top: 3px; }
+.hd-conv-status.resolved { color: #2d7a3a; }
+.hd-conv-status.escalated { color: #c4780a; }
+.hd-thread { flex: 1; display: flex; flex-direction: column; background: var(--white); overflow: hidden; }
+.hd-thread-header { padding: 12px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.hd-thread-av { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.hd-resolved-pill { margin-left: auto; background: #e8f4e8; color: #2d7a3a; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 100px; }
+.hd-messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; background: #F9F9F9; }
+.hd-msg-customer { align-self: flex-start; max-width: 80%; background: #fff; border: 1px solid var(--border); border-radius: 0 10px 10px 10px; padding: 9px 12px; font-size: 12.5px; color: #333; line-height: 1.5; }
+.hd-msg-time { font-size: 10px; color: var(--muted2); margin-top: 3px; }
+.hd-msg-agent { align-self: flex-end; max-width: 82%; background: #F1AC5F; border-radius: 10px 0 10px 10px; padding: 9px 12px; font-size: 12.5px; color: #000; line-height: 1.55; }
+.hd-msg-agent-label { font-size: 10px; font-weight: 700; margin-bottom: 3px; opacity: 0.7; }
+.hd-confidence { display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,0.08); border-radius: 4px; padding: 2px 7px; font-size: 9px; font-weight: 600; margin-top: 6px; width: fit-content; }
+
+/* Mock stats bar */
+.mock-stats {
+  border-top: 1.5px solid var(--border); display: flex;
+}
+.mock-stat { flex: 1; text-align: center; padding: 14px; border-right: 1px solid var(--border); }
+.mock-stat:last-child { border-right: none; }
+.mock-stat-n { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--orange); line-height: 1; letter-spacing: -0.01em; opacity: 1 !important; }
+.mock-stat-l { font-size: 10px; color: var(--muted); margin-top: 3px; font-family: var(--sans); font-weight: 500; }
+
+/* Mock wrap glows */
+.hero-mock-wrap { position: relative; max-width: 900px; margin: 0 auto; }
+.mock-glow { position: absolute; top: 20%; width: 300px; height: 300px; border-radius: 50%; filter: blur(60px); pointer-events: none; z-index: 0; }
+.mock-glow-l { left: -140px; background: radial-gradient(ellipse, rgba(241,172,95,0.35) 0%, transparent 70%); animation: blobDrift1 12s ease-in-out infinite alternate; }
+.mock-glow-r { right: -140px; background: radial-gradient(ellipse, rgba(176,208,240,0.4) 0%, transparent 70%); animation: blobDrift3 15s ease-in-out infinite alternate; }
+.hero-mock-wrap .hero-mock { position: relative; z-index: 1; max-width: 100%; margin: 0; }
+.mock-bottom-fade { position: absolute; bottom: 56px; left: -5%; right: -5%; height: 80px; background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.6) 100%); pointer-events: none; z-index: 2; }
+
+/* ── DESIGN PARTNER STRIP ── */
+.dp-strip { background: var(--black); padding: 16px 0; }
+.dp-strip-inner { max-width: var(--w); margin: 0 auto; padding: 0 36px; display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
+.dp-strip-headline { font-family: var(--serif); font-size: 15px; color: #fff; white-space: nowrap; }
+.dp-strip-headline em { font-style: italic; color: var(--orange); }
+.dp-strip-items { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.dp-strip-item { display: flex; align-items: center; gap: 5px; font-size: 13px; color: rgba(255,255,255,0.6); }
+.dp-strip-item .dp-check { color: #34d058; font-weight: 700; }
+.dp-strip-cta { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--orange); border: 1.5px solid rgba(241,172,95,0.4); padding: 6px 16px; border-radius: 100px; transition: all .2s; white-space: nowrap; }
+.dp-strip-cta:hover { background: rgba(241,172,95,0.1); }
+
+/* ── SECTIONS ── */
+.section-label { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; display: block; }
+h2 { font-family: var(--serif); font-size: clamp(30px, 3.5vw, 44px); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: var(--black); margin-bottom: 12px; }
+h2 em { font-style: italic; }
+.section-sub { font-size: 16px; color: var(--muted); max-width: 500px; line-height: 1.65; font-family: var(--sans); }
+section { padding: 96px 0; border-top: 1px solid var(--border); }
+section.surface { background: var(--surface); }
+
+/* ── IS THIS FOR ME ── */
+.for-you-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.audience-list { display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
+.audience-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; }
+.audience-check { width: 22px; height: 22px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.audience-check svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.audience-item-text strong { display: block; font-size: 13.5px; font-weight: 600; color: var(--black); margin-bottom: 2px; }
+.audience-item-text span { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.not-for-box { background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px; padding: 16px 18px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+.not-for-box strong { color: var(--black); }
+
+/* For-you right: Slack mock */
+.chat-mock { border: 1.5px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 16px 48px rgba(12,12,13,0.1); }
+.chat-mock-header { background: #3F0F40; padding: 12px 16px; display: flex; align-items: center; gap: 10px; }
+.chat-mock-header-dot { width: 8px; height: 8px; border-radius: 50%; background: #34d058; box-shadow: 0 0 6px rgba(52,208,88,0.5); flex-shrink: 0; animation: pulse 2s infinite; }
+.chat-mock-header-name { font-size: 13px; font-weight: 700; color: #fff; }
+.chat-mock-header-sub { font-size: 10.5px; color: rgba(255,255,255,0.5); }
+.chat-mock-body { background: var(--white); padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.chat-mock-body .slack-msg { display: flex; gap: 9px; align-items: flex-start; }
+.slack-avatar { width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; }
+.slack-avatar.user { background: #5C3D8F; }
+.slack-avatar.agent { background: #F1AC5F; color: #000; }
+.slack-msg-inner { flex: 1; }
+.slack-msg-name { font-size: 12.5px; font-weight: 700; color: var(--black); margin-bottom: 2px; }
+.slack-bot-tag { background: rgba(241,172,95,0.2); color: #c4780a; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-left: 5px; }
+.slack-reaction { display: inline-flex; align-items: center; gap: 5px; background: rgba(45,179,95,0.08); border: 1px solid rgba(45,179,95,0.25); border-radius: 5px; padding: 3px 8px; margin-top: 6px; font-size: 10px; font-weight: 600; color: #2D7A3A; }
+.bubble-escalate { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 12px; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; }
+
+/* ── PROBLEM ── */
+.problem-header { text-align: center; margin-bottom: 56px; }
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 820px; margin: 0 auto; }
+.problem-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 18px; padding: 28px; transition: box-shadow .2s; }
+.problem-card:hover { box-shadow: 0 8px 32px rgba(12,12,13,0.08); }
+.card-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(241,172,95,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.card-icon svg { width: 20px; height: 20px; stroke: var(--orange); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.problem-card h3 { font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--black); margin-bottom: 8px; }
+.problem-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* ── CHANNELS ── */
+.channels-header { text-align: center; margin-bottom: 56px; }
+.channels-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 960px; margin: 0 auto; }
+.channel-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 18px; overflow: hidden; }
+.channel-card-header { padding: 18px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+.channel-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.channel-icon.slack { background: #4A154B; }
+.channel-icon.wa { background: #25D366; }
+.channel-name { font-family: var(--serif); font-size: 16px; font-weight: 400; color: var(--black); }
+.channel-desc { font-size: 12px; color: var(--muted2); }
+.channel-body { padding: 18px 20px; }
+.wa-mock { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.wa-mock .wa-bubble { font-size: 12px; padding: 8px 12px; border-radius: 12px; max-width: 90%; }
+.wa-mock .wa-bubble.received { background: #f0f0f0; align-self: flex-start; }
+.wa-mock .wa-bubble.sent { background: #D9FDD3; align-self: flex-end; }
+.wa-aegion-tag { font-size: 10px; font-weight: 700; color: #075E54; margin-bottom: 3px; }
+.wa-bubble-time { font-size: 9px; color: var(--muted2); text-align: right; margin-top: 3px; }
+.channel-stat { text-align: center; padding-top: 14px; border-top: 1px solid var(--border); }
+.channel-stat-num { font-family: var(--serif); font-size: 28px; color: var(--orange); line-height: 1; }
+.channel-stat-text { font-size: 12px; color: var(--muted2); margin-top: 3px; }
+.channels-extra { max-width: 960px; margin: 20px auto 0; background: var(--surface); border: 1.5px solid var(--border); border-radius: 14px; padding: 18px 24px; display: flex; align-items: center; gap: 16px; }
+.channels-extra-icon { width: 38px; height: 38px; border-radius: 10px; background: rgba(241,172,95,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.channels-extra-icon svg { width: 18px; height: 18px; stroke: var(--orange); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.channels-extra-text strong { display: block; font-size: 13.5px; font-weight: 600; color: var(--black); }
+.channels-extra-text span { font-size: 12.5px; color: var(--muted); }
+.channels-extra-tags { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.ch-tag { background: var(--white); border: 1px solid var(--border); border-radius: 100px; padding: 3px 10px; font-size: 11.5px; color: var(--muted); }
+
+/* ── HOW IT WORKS ── */
+.hiw-header { text-align: center; margin-bottom: 60px; }
+.steps-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; border: 1.5px solid var(--border); border-radius: 20px; overflow: hidden; }
+.step-card { padding: 36px 30px 32px; position: relative; background: var(--white); transition: background .2s; }
+.step-card:hover { background: var(--surface); }
+.step-card + .step-card { border-left: 1px solid var(--border); }
+.step-card.featured { background: var(--surface); }
+.step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted2); margin-bottom: 4px; font-family: var(--sans); }
+.step-timing { display: inline-block; background: rgba(241,172,95,0.15); color: #c4780a; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px; margin-bottom: 18px; font-family: var(--sans); }
+.step-visual { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.step-tag { background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 4px 10px; font-size: 11.5px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+.step-tag .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+.step-title { font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--black); margin-bottom: 8px; }
+.step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.setup-time { text-align: center; margin-top: 32px; }
+.setup-time-badge { display: inline-block; background: rgba(52,208,88,0.1); border: 1px solid rgba(52,208,88,0.25); color: #2d7a3a; font-size: 13px; font-weight: 600; padding: 8px 20px; border-radius: 100px; font-family: var(--sans); }
+
+/* ── WHY AEGION ── */
+.why-header { text-align: center; margin-bottom: 48px; }
+.objection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 900px; margin: 0 auto 48px; }
+.objection-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 18px; padding: 28px; }
+.obj-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; margin-bottom: 14px; font-family: var(--sans); }
+.obj-tag.helpdesk { background: rgba(241,172,95,0.15); color: #c4780a; }
+.obj-tag.chatgpt { background: rgba(176,208,240,0.25); color: #2a6496; }
+.objection-card h3 { font-family: var(--serif); font-size: 17px; color: var(--black); margin-bottom: 10px; line-height: 1.3; }
+.objection-card p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+.obj-highlight { background: var(--surface); border-left: 3px solid var(--orange); padding: 10px 14px; font-size: 12.5px; color: var(--black); border-radius: 0 8px 8px 0; font-weight: 500; }
+.comp-label { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted2); margin-bottom: 16px; }
+.comp-table-wrap { max-width: 820px; margin: 0 auto; }
+.comp-table { width: 100%; border-collapse: collapse; border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; }
+.comp-table th { padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 700; color: var(--muted); background: var(--surface); border-bottom: 1.5px solid var(--border); }
+.comp-table th.highlight { color: var(--black); }
+.comp-table td { padding: 11px 16px; font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--border); }
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table td.highlight { background: rgba(241,172,95,0.04); font-weight: 600; color: var(--black); }
+.check { color: #2BAC76; font-weight: 700; }
+.cross { color: var(--muted2); }
+.partial { color: #c4780a; font-size: 12px; }
+.comp-caveat { font-size: 12px; color: var(--muted2); text-align: center; margin-top: 14px; font-style: italic; }
+
+/* ── PRICING ── */
+.pricing-header { text-align: center; margin-bottom: 48px; }
+.pricing-anchor { display: inline-flex; align-items: center; gap: 10px; background: var(--surface); border: 1.5px solid var(--border); border-radius: 100px; padding: 8px 20px; margin-bottom: 48px; font-size: 14px; color: var(--muted); }
+.pricing-anchor strong { color: var(--black); }
+.pricing-anchor .vs { color: var(--muted2); }
+.pricing-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; max-width: 780px; margin: 0 auto; }
+.price-card { border: 1.5px solid var(--border); border-radius: 18px; padding: 28px; background: var(--white); position: relative; transition: box-shadow .2s; }
+.price-card:hover { box-shadow: 0 8px 32px rgba(12,12,13,0.08); }
+.price-card.featured { border-color: var(--orange); background: linear-gradient(160deg, rgba(241,172,95,0.06) 0%, var(--white) 50%); }
+.price-badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--orange); color: var(--white); font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 13px; border-radius: 100px; white-space: nowrap; font-family: var(--sans); }
+.price-tier { font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 10px; font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.06em; }
+.price-amount { font-family: var(--serif); font-size: 42px; font-weight: 400; letter-spacing: -0.02em; line-height: 1; color: var(--black); }
+.price-amount span { font-family: var(--sans); font-size: 16px; font-weight: 400; color: var(--muted); }
+.price-period { font-size: 12px; color: var(--muted2); margin-bottom: 22px; margin-top: 5px; font-family: var(--sans); }
+.price-divider { height: 1px; background: var(--border); margin-bottom: 18px; }
+.price-feats { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.price-feat { font-size: 13px; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; font-family: var(--sans); }
+.price-feat::before { content: '✓'; color: #2BAC76; font-weight: 700; font-size: 11px; flex-shrink: 0; margin-top: 2px; }
+.price-btn { width: 100%; padding: 11px; border-radius: 100px; font-size: 13px; font-weight: 600; cursor: pointer; text-align: center; display: block; transition: all .2s; font-family: var(--sans); }
+.price-btn.ghost { border: 1.5px solid var(--border2); color: var(--black); background: transparent; }
+.price-btn.ghost:hover { border-color: var(--black); }
+.price-btn.solid { background: var(--black); color: var(--white); border: none; }
+.price-btn.solid:hover { background: #2a2a2a; }
+.price-trial { text-align: center; font-size: 11px; color: var(--muted2); margin-top: 10px; font-family: var(--sans); }
+.cost-compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 780px; margin: 48px auto 0; }
+.cost-col { background: var(--surface); border: 1.5px solid var(--border); border-radius: 14px; padding: 20px; text-align: center; }
+.cost-col.aegion { border-color: var(--orange); background: linear-gradient(135deg, rgba(241,172,95,0.08) 0%, var(--white) 100%); }
+.cost-col-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted2); margin-bottom: 8px; font-family: var(--sans); }
+.cost-col-price { font-family: var(--serif); font-size: 26px; color: var(--black); line-height: 1; }
+.cost-col-price.highlight { color: var(--orange); }
+.cost-col-sub { font-size: 11px; color: var(--muted2); margin-top: 5px; }
+
+/* ── FAQ ── */
+.faq-list { max-width: 700px; margin: 0 auto; border: 1.5px solid var(--border); border-radius: 18px; overflow: hidden; }
+.faq-item { border-bottom: 1px solid var(--border); background: var(--white); }
+.faq-item:last-child { border-bottom: none; }
+.faq-item.open { background: var(--surface); }
+.faq-q { width: 100%; text-align: left; padding: 18px 22px; background: transparent; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--black); transition: color .2s; }
+.faq-icon { font-size: 20px; font-weight: 300; color: var(--muted2); flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a-inner { padding: 0 22px 18px; font-size: 13.5px; color: var(--muted); line-height: 1.7; font-family: var(--sans); }
+
+/* ── FINAL CTA ── */
+.final-cta-section { padding: 96px 0; text-align: center; position: relative; overflow: hidden; background: var(--surface); border-top: 1.5px solid var(--border); }
+.final-ctas { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; }
+.final-hints { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.fhint { font-size: 12px; color: var(--muted2); display: flex; align-items: center; gap: 5px; font-family: var(--sans); }
+.fhint::before { content: '✓'; color: #2BAC76; font-weight: 700; font-size: 11px; }
+
+/* ── FOOTER ── */
+footer { background: var(--black); color: var(--white); padding: 48px 0 28px; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 10px; max-width: 200px; line-height: 1.6; font-family: var(--sans); }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; font-family: var(--sans); }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 9px; transition: color .2s; font-family: var(--sans); }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.25); font-family: var(--sans); }
+.footer-logo-text { font-family: var(--serif); font-size: 20px; }
+
+/* ── ANIMATIONS ── */
+@keyframes panelIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.mock-panel.active { animation: panelIn .3s cubic-bezier(.22,1,.36,1) both; }
+@keyframes msgIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes bubblePop { 0% { opacity: 0; transform: scale(.88) translateY(8px); } 60% { transform: scale(1.03) translateY(-1px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes badgePing { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(205,37,83,.4); } 70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(205,37,83,0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(205,37,83,0); } }
+@keyframes resolvedIn { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes gradShift { 0% { opacity: 1; } 50% { opacity: 0.88; } 100% { opacity: 1; } }
+@keyframes blobDrift1 { 0% { transform: translate(0px,0px) scale(1); } 33% { transform: translate(30px,-20px) scale(1.04); } 66% { transform: translate(-20px,30px) scale(0.97); } 100% { transform: translate(20px,10px) scale(1.02); } }
+@keyframes blobDrift2 { 0% { transform: translate(0px,0px) scale(1); } 40% { transform: translate(-25px,20px) scale(1.06); } 70% { transform: translate(15px,-30px) scale(0.96); } 100% { transform: translate(-10px,15px) scale(1.03); } }
+@keyframes blobDrift3 { 0% { transform: translate(0px,0px) scale(1); } 30% { transform: translate(20px,25px) scale(0.95); } 65% { transform: translate(-30px,-15px) scale(1.05); } 100% { transform: translate(10px,-20px) scale(1.02); } }
+@keyframes heroFadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+.hero-badge { animation: heroFadeUp .6s .1s both; }
+.hero h1 { animation: heroFadeUp .7s .25s both; }
+.hero-sub { animation: heroFadeUp .6s .4s both; }
+.hero-metrics { animation: heroFadeUp .6s .46s both; }
+.hero-ctas { animation: heroFadeUp .6s .52s both; }
+.sits-row { animation: heroFadeUp .5s .64s both; }
+.hero-mock-wrap { animation: heroFadeUp .8s .76s both; }
+.typing-indicator { display: inline-flex; align-items: center; gap: 4px; padding: 10px 14px; border-radius: 18px 18px 18px 4px; background: #F1F0F0; }
+.typing-dot { width: 7px; height: 7px; border-radius: 50%; background: #ABABAB; animation: typingBounce 1.2s infinite ease-in-out; }
+.typing-dot:nth-child(2) { animation-delay: .16s; }
+.typing-dot:nth-child(3) { animation-delay: .32s; }
+@keyframes typingBounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-5px); } }
+.wa-typing { display: inline-flex; align-items: center; gap: 3px; padding: 8px 12px; background: #fff; border-radius: 8px 8px 8px 0; box-shadow: 0 1px 2px rgba(0,0,0,.1); }
+.wa-typing-dot { width: 6px; height: 6px; border-radius: 50%; background: #B0B0B0; animation: typingBounce 1.2s infinite ease-in-out; }
+.wa-typing-dot:nth-child(2) { animation-delay: .14s; }
+.wa-typing-dot:nth-child(3) { animation-delay: .28s; }
+
+/* Ring particles */
+@supports (background: paint(ring-particles)) {
+  .hero-particles {
+    --ring-radius: 160; --ring-thickness: 520; --particle-count: 90; --particle-rows: 26;
+    --particle-size: 2.4; --particle-color: 241, 172, 95; --particle-min-alpha: 0.06;
+    --particle-max-alpha: 0.55; --seed: 77; --ring-x: 50; --ring-y: 50;
+    background-image: paint(ring-particles);
+  }
+}
+@property --animation-tick { syntax: '<number>'; inherits: false; initial-value: 0; }
+@property --ring-radius { syntax: '<number> | auto'; inherits: false; initial-value: auto; }
+@property --ring-x { syntax: '<number>'; inherits: false; initial-value: 50; }
+@property --ring-y { syntax: '<number>'; inherits: false; initial-value: 50; }
+@keyframes particles-ripple { 0% { --animation-tick: 0; } 100% { --animation-tick: 1; } }
+@keyframes particles-ring { 0% { --ring-radius: 120; } 100% { --ring-radius: 220; } }
+.hero-particles {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  animation: particles-ripple 6s linear infinite, particles-ring 8s ease-in-out infinite alternate;
+  transition: --ring-x 2.5s ease, --ring-y 2.5s ease;
+}
+@keyframes intercomSlide { from { opacity:0; transform: translateX(-10px); } to { opacity:1; transform: translateX(0); } }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-i">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 90 72" fill="none"><circle cx="52" cy="17" r="17" fill="white"/><circle cx="25" cy="54" r="20" fill="white"/><path d="M47.6 13.8 L56.4 20.2 L29.4 57.2 L20.6 50.8 Z" fill="white"/><circle cx="72" cy="52" r="13" stroke="white" stroke-width="5" fill="none"/></svg>
+      </div>
+      Aegion
+    </a>
+    <div class="nav-links">
+      <a href="#for-you">Is this for me?</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#why-aegion">Why Aegion</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="nav-end">
+      <a href="#" class="btn-ghost">Log in</a>
+      <a href="https://calendly.com" target="_blank" class="btn-primary">Get started →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero" style="position:relative;overflow:hidden;background:#fff;">
+  <!-- Gradient background -->
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 8% 20%, rgba(241,172,95,0.72) 0%, transparent 55%),radial-gradient(ellipse 70% 60% at 92% 15%, rgba(221,177,207,0.80) 0%, transparent 52%),radial-gradient(ellipse 75% 65% at 88% 85%, rgba(176,208,240,0.85) 0%, transparent 55%),radial-gradient(ellipse 60% 50% at 12% 88%, rgba(241,172,95,0.55) 0%, transparent 50%),radial-gradient(ellipse 90% 50% at 50% 50%, rgba(221,177,207,0.35) 0%, transparent 65%);animation: gradShift 12s ease-in-out infinite alternate;"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 50% 42%, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.30) 55%, transparent 80%);"></div>
+    <div style="position:absolute;top:-60px;left:-60px;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle, rgba(241,172,95,0.90) 0%, rgba(241,172,95,0.40) 38%, transparent 65%);filter:blur(32px);animation: blobDrift1 14s ease-in-out infinite alternate;"></div>
+    <div style="position:absolute;top:-80px;right:-80px;width:580px;height:580px;border-radius:50%;background:radial-gradient(circle, rgba(221,177,207,0.95) 0%, rgba(221,177,207,0.45) 38%, transparent 65%);filter:blur(28px);animation: blobDrift2 16s ease-in-out infinite alternate;"></div>
+    <div style="position:absolute;bottom:-80px;right:-40px;width:620px;height:500px;border-radius:50%;background:radial-gradient(circle, rgba(176,208,240,0.95) 0%, rgba(176,208,240,0.50) 40%, transparent 65%);filter:blur(30px);animation: blobDrift3 18s ease-in-out infinite alternate;"></div>
+    <div style="position:absolute;bottom:-40px;left:-60px;width:480px;height:400px;border-radius:50%;background:radial-gradient(circle, rgba(241,172,95,0.70) 0%, rgba(221,177,207,0.35) 45%, transparent 65%);filter:blur(36px);animation: blobDrift2 20s ease-in-out infinite alternate-reverse;"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:90px;background:linear-gradient(to bottom,rgba(255,255,255,0.75) 0%,transparent 100%);"></div>
+  </div>
+  <div class="hero-particles" id="hero-particles"></div>
+  <div class="hero-particles" id="hero-particles-pink" style="--particle-color: 221, 177, 207;--particle-count: 70;--particle-rows: 20;--particle-size: 1.8;--particle-min-alpha: 0.05;--particle-max-alpha: 0.45;--ring-radius: 180;--ring-thickness: 480;--seed: 133;animation-duration: 7s, 11s;"></div>
+  <div class="hero-particles" id="hero-particles-blue" style="--particle-color: 176, 208, 240;--particle-count: 80;--particle-rows: 22;--particle-size: 2.0;--particle-min-alpha: 0.05;--particle-max-alpha: 0.50;--ring-radius: 140;--ring-thickness: 560;--seed: 211;animation-duration: 5s, 9s;"></div>
+
+  <div class="wrap hero-inner">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      <span class="badge-tag">Design Partner</span>
+      <span><strong style="color:#34d058;">4 spots left</strong> · Free for 1 year · We set it up for you</span>
+    </div>
+
+    <h1>Your team builds.<br><em>Aegion handles support.</em></h1>
+    <p class="hero-sub">Stop pulling your best people into ticket queues. Aegion answers customer questions across Slack, WhatsApp, and email — instantly, in your voice, 24/7.</p>
+
+    <div class="hero-metrics">
+      <div class="hero-metric"><div class="hero-metric-num">70%</div><div class="hero-metric-label">tickets auto-resolved</div></div>
+      <div class="hero-metric"><div class="hero-metric-num">&lt;1 min</div><div class="hero-metric-label">first response time</div></div>
+      <div class="hero-metric"><div class="hero-metric-num">$299/mo</div><div class="hero-metric-label">flat — no per-ticket fees</div></div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="https://calendly.com" target="_blank" class="hero-cta-primary">Claim a design partner spot →</a>
+      <a href="#for-you" class="hero-cta-ghost">Is this for me? ↓</a>
+    </div>
+
+    <div class="sits-row">
+      <div class="sits-label">Aegion sits on top of</div>
+      <div class="sits-tabs">
+        <div class="sits-tab active" data-target="panel-slack"><div class="sits-dot" style="background:#4A154B"></div>Slack</div>
+        <div class="sits-tab" data-target="panel-whatsapp"><div class="sits-dot" style="background:#25D366"></div>WhatsApp</div>
+        <div class="sits-tab" data-target="panel-email"><div class="sits-dot" style="background:#4285F4"></div>Email</div>
+        <div class="sits-tab" data-target="panel-intercom"><div class="sits-dot" style="background:#FF5733"></div>Intercom</div>
+      </div>
+    </div>
+
+    <div class="hero-mock-wrap">
+      <div class="mock-glow mock-glow-l"></div>
+      <div class="mock-glow mock-glow-r"></div>
+      <div class="hero-mock">
+        <div class="mock-bar">
+          <div class="mock-dots"><span></span><span></span><span></span></div>
+          <div class="mock-title">Aegion · Live support across your channels</div>
+        </div>
+        <div class="mock-panels">
+
+          <!-- SLACK -->
+          <div class="mock-panel active" id="panel-slack">
+            <div class="slack-wrap" style="height:400px;">
+              <div class="slack-sidebar">
+                <div class="slack-ws"><div class="slack-ws-name">Acme Inc.</div><div class="slack-status">Active</div></div>
+                <div style="margin-bottom:8px;">
+                  <div class="slack-sec-title">Channels</div>
+                  <div class="slack-ch"><span class="slack-ch-hash">#</span>general</div>
+                  <div class="slack-ch"><span class="slack-ch-hash">#</span>engineering</div>
+                  <div class="slack-ch active"><span class="slack-ch-hash">#</span>customer-support <span class="slack-ch-badge">3</span></div>
+                  <div class="slack-ch"><span class="slack-ch-hash">#</span>announcements</div>
+                  <div class="slack-ch"><span class="slack-ch-hash">#</span>product</div>
+                </div>
+              </div>
+              <div class="slack-main">
+                <div class="slack-header"><div><div class="slack-header-ch">customer-support</div><div class="slack-header-desc">3 members · AI agent active</div></div></div>
+                <div class="slack-msgs">
+                  <div class="slack-msg"><div class="slack-av" style="background:#5C3D8F;">JL</div><div class="slack-msg-body"><div class="slack-msg-meta"><span class="slack-msg-name">Jamie (Customer)</span><span class="slack-msg-time">10:14 AM</span></div><div class="slack-msg-text">Hey — our API is returning a 401 on the new endpoint. We haven't changed anything on our end.</div></div></div>
+                  <div class="slack-msg"><div class="slack-av" style="background:#F1AC5F;color:#000;">A</div><div class="slack-msg-body"><div class="slack-msg-meta"><span class="slack-msg-name">Aegion</span><span class="slack-ai-tag">AI Agent</span><span class="slack-msg-time">10:14 AM</span></div><div class="slack-msg-text">Hi Jamie — 401s on that endpoint typically mean the token wasn't rotated after our auth update (shipped Tuesday). Fix in 2 min: <span class="slack-link">[auth guide →]</span></div><div class="slack-resolved">⚡ Resolved in 45s · Confidence 94% · No escalation</div></div></div>
+                  <div class="slack-msg" style="margin-top:4px;"><div class="slack-av" style="background:#2E7D32;">MR</div><div class="slack-msg-body"><div class="slack-msg-meta"><span class="slack-msg-name">Maria (Customer)</span><span class="slack-msg-time">10:22 AM</span></div><div class="slack-msg-text">When does the new billing cycle start for our account?</div></div></div>
+                  <div class="slack-msg"><div class="slack-av" style="background:#F1AC5F;color:#000;">A</div><div class="slack-msg-body"><div class="slack-msg-meta"><span class="slack-msg-name">Aegion</span><span class="slack-ai-tag">AI Agent</span><span class="slack-msg-time">10:22 AM</span></div><div class="slack-msg-text">Hi Maria — your billing cycle resets on the 1st of each month. Your next invoice date is Nov 1st. Anything else I can help with?</div><div class="slack-resolved">⚡ Resolved in 12s · Confidence 98%</div></div></div>
+                </div>
+                <div class="slack-input"><div class="slack-input-box">Message #customer-support</div><div class="slack-input-send"><svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WHATSAPP -->
+          <div class="mock-panel" id="panel-whatsapp">
+            <div class="wa-wrap" style="height:400px;">
+              <div class="wa-header"><div class="wa-back">‹</div><div class="wa-av">🤖</div><div class="wa-hinfo"><div class="wa-hname">Aegion · Acme Support</div><div class="wa-hstatus">Online · AI agent active</div></div><div class="wa-hicons"><span>📹</span><span>📞</span><span>⋮</span></div></div>
+              <div class="wa-bg" style="flex:1;padding:14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;background-color:#ECE5DD;">
+                <div class="wa-date-sep"><span class="wa-date-chip">Today</span></div>
+                <div class="wa-bubble in"><div class="wa-sender">Aegion · Support</div>Hi! I'm Aegion, Acme's support agent. How can I help you today? 😊<div class="wa-time">10:14 ✓✓</div></div>
+                <div class="wa-bubble out">My invoice shows $420 but I'm on the $299 plan<div class="wa-time">10:15 <span class="wa-ticks">✓✓</span></div></div>
+                <div class="wa-bubble in"><div class="wa-sender">Aegion · Support</div>Got it — your account had a $121 overage in October from exceeding your ticket limit. I've attached the breakdown. Upgrade to avoid this, or connect you to billing?<div class="wa-time">10:15 ✓✓</div></div>
+                <div class="wa-bubble out">Please connect me to billing<div class="wa-time">10:16 <span class="wa-ticks">✓✓</span></div></div>
+                <div class="wa-bubble in"><div class="wa-sender">Aegion · Support</div>Escalating now — I've packaged the full conversation + invoice breakdown for the billing team. They'll follow up within 2 hours. Your reference: #BIL-2847 🎫<div class="wa-time">10:16 ✓✓</div></div>
+              </div>
+              <div class="wa-input"><span style="font-size:18px;color:var(--muted);">📎</span><input class="wa-input-box" placeholder="Type a message" readonly><div class="wa-send-btn"><svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></div></div>
+            </div>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="mock-panel" id="panel-email">
+            <div class="email-wrap" style="height:400px;">
+              <div class="email-sidebar">
+                <div class="email-sidebar-head"><div class="email-sidebar-title">Inbox</div><div class="email-sidebar-addr">support@aegion.ai</div></div>
+                <div class="email-nav-item active">📥 Inbox <span class="email-nav-badge">12</span></div>
+                <div class="email-nav-item">⭐ Starred</div>
+                <div class="email-nav-item">📤 Sent</div>
+                <div class="email-nav-item">🏷 Support</div>
+              </div>
+              <div class="email-main">
+                <div class="email-thread-header" data-email-open>
+                  <div class="email-subject">Re: API returning 401 errors — urgent</div>
+                  <div class="email-meta"><span>From: <strong>Jamie Lee &lt;jamie@startupco.io&gt;</strong></span><span>·</span><span>10:14 AM</span><span style="margin-left:auto;display:flex;gap:6px;"><span class="email-resolved-tag" data-resolved-tag>✓ Auto-resolved</span><span class="email-ai-tag">AI Agent</span></span></div>
+                </div>
+                <div class="email-body" data-agent-area>
+                  <div class="email-customer-msg" data-customer-msg>Hi team,<br><br>Our integration started throwing 401 errors on your new <code style="background:#f5f5f5;padding:1px 5px;border-radius:3px;font-size:12px;">/v2/events</code> endpoint starting this morning. Nothing changed on our side.<br><br>— Jamie</div>
+                  <div style="border-top:1px solid var(--border);padding-top:16px;">
+                    <div class="email-reply-row" data-email-reply>
+                      <div class="email-reply-av">A</div>
+                      <div style="flex:1;">
+                        <div class="email-reply-meta"><span class="email-reply-name">Aegion</span><span class="email-ai-tag">AI Agent</span><span class="email-reply-time">10:14 AM</span></div>
+                        <div class="email-reply-body">Hi Jamie,<br><br>Thanks for flagging. The 401 errors on <code style="background:#f5f5f5;padding:1px 5px;border-radius:3px;font-size:12px;">/v2/events</code> are caused by an auth token rotation we shipped on Tuesday — all existing tokens need to be refreshed.<br><br>Here's the <a href="#" style="color:#1a73e8;">step-by-step migration guide →</a> — takes under 2 minutes.<br><br>Aegion · Acme Support<span data-cursor class="cursor-blink"></span></div>
+                        <div class="email-resolved-badge">⚡ Resolved in 48s · Confidence 94%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- INTERCOM -->
+          <div class="mock-panel" id="panel-intercom">
+            <div class="hd-wrap" style="height:400px;">
+              <div class="hd-icon-bar">
+                <div class="hd-icon-btn active" style="background:#FF5733;font-size:16px;">💬</div>
+                <div class="hd-icon-btn">📥</div><div class="hd-icon-btn">👥</div><div class="hd-icon-btn">📊</div>
+                <div style="margin-top:auto;width:30px;height:30px;border-radius:50%;background:#F1AC5F;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#000;">A</div>
+              </div>
+              <div class="hd-list">
+                <div class="hd-list-header">Inbox <span class="hd-inbox-badge">8</span></div>
+                <div class="hd-conv active" data-conv-item><div class="hd-conv-top"><span class="hd-conv-name">Jamie Lee</span><span class="hd-conv-time">10:14</span></div><div class="hd-conv-preview">API returning 401 on new endpoint</div><div class="hd-conv-status resolved">✓ AI resolved</div></div>
+                <div class="hd-conv" data-conv-item><div class="hd-conv-top"><span class="hd-conv-name">Maria Chen</span><span class="hd-conv-time">9:52</span></div><div class="hd-conv-preview">When does billing cycle reset?</div><div class="hd-conv-status resolved">✓ AI resolved</div></div>
+                <div class="hd-conv" data-conv-item><div class="hd-conv-top"><span class="hd-conv-name">Marcus K.</span><span class="hd-conv-time">9:31</span></div><div class="hd-conv-preview">Enterprise data retention agreement</div><div class="hd-conv-status escalated">⚠ Escalated to team</div></div>
+              </div>
+              <div class="hd-thread">
+                <div class="hd-thread-header"><div class="hd-thread-av" style="background:#5C3D8F;">JL</div><div><div style="font-size:13px;font-weight:700;">Jamie Lee</div><div style="font-size:11px;color:#aaa;">startupco.io · Growth plan</div></div><span class="hd-resolved-pill" data-intercom-resolved>Resolved</span></div>
+                <div class="hd-messages" data-chat-area>
+                  <div class="hd-msg-customer" data-chat-bubble>API is throwing 401s on /v2/events since this morning<div class="hd-msg-time">10:14 AM</div></div>
+                  <div class="hd-msg-agent" data-agent-bubble><div class="hd-msg-agent-label">Aegion · AI Agent</div>Token wasn't rotated after Tuesday's auth update. Here's the fix: <a href="#" style="color:#000;font-weight:600;text-decoration:underline;">[auth guide →]</a><div class="hd-confidence">⚡ 45s · Confidence 94%</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="mock-stats">
+          <div class="mock-stat"><div class="mock-stat-n">70%</div><div class="mock-stat-l">tickets auto-resolved</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">&lt;1 min</div><div class="mock-stat-l">first response</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">$299/mo</div><div class="mock-stat-l">flat · no per-ticket</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">4.8+</div><div class="mock-stat-l">CSAT maintained</div></div>
+        </div>
+      </div>
+      <div class="mock-bottom-fade"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DESIGN PARTNER STRIP ═══ -->
+<div class="dp-strip">
+  <div class="dp-strip-inner">
+    <div class="dp-strip-headline">🎯 Design Partner Offer: <em>We set it up. You watch it work. Free for 1 year.</em></div>
+    <div class="dp-strip-items">
+      <div class="dp-strip-item"><span class="dp-check">✓</span> We do the full setup</div>
+      <div class="dp-strip-item"><span class="dp-check">✓</span> Live on your queue in hours</div>
+      <div class="dp-strip-item"><span class="dp-check">✓</span> No payment until you're satisfied</div>
+    </div>
+    <a href="https://calendly.com" target="_blank" class="dp-strip-cta">Claim a spot →</a>
+  </div>
+</div>
+
+<!-- ═══ IS THIS FOR ME ═══ -->
+<section id="for-you">
+  <div class="wrap">
+    <div class="for-you-grid">
+      <div>
+        <span class="section-label">Is this for me?</span>
+        <h2>You're the right fit if this sounds familiar.</h2>
+        <p class="section-sub" style="margin-bottom:8px;">Aegion is built for one stage: fast-growing, support is a pain, not ready to hire.</p>
+        <div class="audience-list">
+          <div class="audience-item"><div class="audience-check"><svg viewBox="0 0 14 14"><polyline points="2,7 6,11 12,3"/></svg></div><div class="audience-item-text"><strong>10–150 person B2B SaaS or tech company</strong><span>Product-led or sales-led, handling support yourself or with a small team</span></div></div>
+          <div class="audience-item"><div class="audience-check"><svg viewBox="0 0 14 14"><polyline points="2,7 6,11 12,3"/></svg></div><div class="audience-item-text"><strong>Your best people are stuck answering support</strong><span>Smart enough to answer — but they shouldn't be. It's pulling them away from building.</span></div></div>
+          <div class="audience-item"><div class="audience-check"><svg viewBox="0 0 14 14"><polyline points="2,7 6,11 12,3"/></svg></div><div class="audience-item-text"><strong>100–500 inbound tickets per month</strong><span>Fast enough that manual handling is starting to break, not ready to hire a team</span></div></div>
+          <div class="audience-item"><div class="audience-check"><svg viewBox="0 0 14 14"><polyline points="2,7 6,11 12,3"/></svg></div><div class="audience-item-text"><strong>Customers on Slack, WhatsApp, or email</strong><span>They're not opening tickets. They're messaging you directly.</span></div></div>
+          <div class="audience-item"><div class="audience-check"><svg viewBox="0 0 14 14"><polyline points="2,7 6,11 12,3"/></svg></div><div class="audience-item-text"><strong>Thinking about hiring a support person — but not yet</strong><span>You want the capacity without the headcount, onboarding, or overhead</span></div></div>
+        </div>
+        <div class="not-for-box" style="margin-top:16px;"><strong>Not a fit?</strong> If you have 5+ dedicated agents, need enterprise compliance, or run a consumer marketplace — we'll tell you on the call.</div>
+      </div>
+      <div>
+        <div class="chat-mock">
+          <div class="chat-mock-header"><div class="chat-mock-header-dot"></div><div><div class="chat-mock-header-name">#customer-support</div><div class="chat-mock-header-sub">Slack · Acme Corp workspace</div></div></div>
+          <div class="chat-mock-body">
+            <div class="slack-msg"><div class="slack-avatar user">JL</div><div class="slack-msg-inner"><div class="slack-msg-name">Jamie (Customer)</div><div class="slack-msg-text">Hey — our API is returning a 401 on the new endpoint. We haven't changed anything on our end.</div></div></div>
+            <div class="slack-msg"><div class="slack-avatar agent">A</div><div class="slack-msg-inner"><div class="slack-msg-name">Aegion <span class="slack-bot-tag">AI Agent</span></div><div class="slack-msg-text">Hi Jamie — 401s on that endpoint typically mean the token wasn't rotated after our last auth update (shipped Tuesday). Here's how to fix it in 2 minutes: <strong>[link to doc]</strong>. Let me know if that resolves it.</div><div class="slack-reaction">⚡ <span>Resolved in 45 sec</span></div></div></div>
+            <div class="slack-msg"><div class="slack-avatar user">JL</div><div class="slack-msg-inner"><div class="slack-msg-name">Jamie (Customer)</div><div class="slack-msg-text">That fixed it, thanks!</div></div></div>
+            <div class="bubble-escalate"><span>📋</span><span>Ticket <strong>#1042</strong> auto-resolved. Confidence: 94%. No human needed.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROBLEM ═══ -->
+<section class="surface">
+  <div class="wrap">
+    <div class="problem-header">
+      <span class="section-label">The Problem</span>
+      <h2>You're doing $10/hour work<br>with $150/hour people.</h2>
+      <p class="section-sub" style="margin:0 auto;">The same 20 questions. Every single day. Your best people are answering them.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Repetitive tickets eat senior time</h3><p>Billing questions. Onboarding steps. Password resets. ~60% of tickets your team could answer in their sleep.</p></div>
+      <div class="problem-card"><div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>4–8 hour response times lose deals</h3><p>Customers waiting hours for answers that should take seconds. That's churn you can see coming.</p></div>
+      <div class="problem-card"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Hiring is slow, expensive, and fragile</h3><p>6 weeks to onboard. $3–5k/mo ongoing. And then they leave. Headcount is not the answer at this stage.</p></div>
+      <div class="problem-card"><div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><h3>Your helpdesk AI stops at the portal</h3><p>Intercom Fin and Freshdesk Freddy don't reach Slack or WhatsApp. That's where your B2B customers are.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHANNELS ═══ -->
+<section>
+  <div class="wrap">
+    <div class="channels-header">
+      <span class="section-label" style="display:block;text-align:center;">The Fix</span>
+      <h2 style="text-align:center;">Aegion lives in Slack, WhatsApp, and email —<br><em>not a new dashboard.</em></h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center;">Your customers aren't opening tickets. They're sending a Slack message or a WhatsApp. Aegion meets them there and handles it.</p>
+    </div>
+    <div class="channels-grid">
+      <div class="channel-card">
+        <div class="channel-card-header"><div class="channel-icon slack"><svg viewBox="0 0 24 24" fill="white"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 9.5v1H9.5A1.5 1.5 0 0 1 8 9V8.5C8 7.67 8.67 7 9.5 7H13a1 1 0 0 1 1 1v1.5z"/><path d="M10 14.5v-1H14.5c.83 0 1.5.67 1.5 1.5v.5c0 .83-.67 1.5-1.5 1.5H11a1 1 0 0 1-1-1v-1.5z"/></svg></div><div><div class="channel-name">Slack</div><div class="channel-desc">For B2B teams with shared customer workspaces</div></div></div>
+        <div class="channel-body">
+          <div class="slack-mock" style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px;">
+            <div class="slack-msg"><div class="slack-avatar user" style="background:#7C3AED;font-size:11px">TK</div><div class="slack-msg-inner"><div class="slack-msg-name">Tomas (Customer)</div><div class="slack-msg-text">Can someone help? I'm getting a 403 when trying to export our data to CSV.</div></div></div>
+            <div class="slack-msg"><div class="slack-avatar agent">A</div><div class="slack-msg-inner"><div class="slack-msg-name">Aegion <span class="slack-bot-tag">AI Agent</span></div><div class="slack-msg-text">Hey Tomas — that happens when the export permission isn't enabled on your role. Settings → Roles → Export. Takes 30 seconds.</div><div class="slack-reaction">✅ <span>Resolved without escalation</span></div></div></div>
+          </div>
+          <div class="channel-stat"><div class="channel-stat-num">73%</div><div class="channel-stat-text">of Slack queries resolved without a human</div></div>
+        </div>
+      </div>
+      <div class="channel-card">
+        <div class="channel-card-header"><div class="channel-icon wa"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></div><div><div class="channel-name">WhatsApp</div><div class="channel-desc">For SME customers and international markets</div></div></div>
+        <div class="channel-body">
+          <div class="wa-mock">
+            <div class="wa-bubble received"><div class="wa-aegion-tag">Aegion · Support Agent</div>Hi! I'm Aegion, the Acme support agent. How can I help?<div class="wa-bubble-time">10:14</div></div>
+            <div class="wa-bubble sent">My invoice shows $420 but my plan is $299.<div class="wa-bubble-time">10:15</div></div>
+            <div class="wa-bubble received">Got it — $121 overage in October from exceeding your ticket limit. I've attached a breakdown. Upgrade to avoid this, or connect to billing?<div class="wa-bubble-time">10:15</div></div>
+          </div>
+          <div class="channel-stat"><div class="channel-stat-num">&lt;45s</div><div class="channel-stat-text">average first response time on WhatsApp</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="channels-extra">
+      <div class="channels-extra-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div class="channels-extra-text"><strong>Also works on email, Telegram, and your existing helpdesk</strong><span>Aegion integrates wherever your customers are. No migration, no new dashboard for your team.</span></div>
+      <div class="channels-extra-tags"><span class="ch-tag">Email</span><span class="ch-tag">Telegram</span><span class="ch-tag">Freshdesk</span><span class="ch-tag">HubSpot</span><span class="ch-tag">Intercom</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="surface" id="how-it-works">
+  <div class="wrap">
+    <div class="hiw-header">
+      <span class="section-label">Setup</span>
+      <h2>Live today.<br><em>Three steps — most of them ours.</em></h2>
+      <p class="section-sub" style="margin:0 auto;">We do the work. You watch it run.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">You do this</div>
+        <div class="step-timing">Step 1 · 15 minutes</div>
+        <div class="step-title">Point us at your channels</div>
+        <div class="step-desc">Tell us where your customers reach you. We handle the connections. No IT project, no migration.</div>
+        <div class="step-visual"><div class="step-tag"><span class="dot"></span>Slack</div><div class="step-tag"><span class="dot"></span>WhatsApp</div><div class="step-tag"><span class="dot"></span>Email</div><div class="step-tag"><span class="dot"></span>Freshdesk</div><div class="step-tag"><span class="dot"></span>HubSpot</div></div>
+      </div>
+      <div class="step-card featured">
+        <div class="step-num">We do this</div>
+        <div class="step-timing">Step 2 · Same day</div>
+        <div class="step-title">We train it on your product</div>
+        <div class="step-desc">Share your docs, FAQs, or past tickets. We ingest everything, tune the responses, and make sure it sounds like you — not a bot.</div>
+        <div class="step-visual"><div class="step-tag"><span class="dot"></span>Notion</div><div class="step-tag"><span class="dot"></span>Google Docs</div><div class="step-tag"><span class="dot"></span>PDFs</div><div class="step-tag"><span class="dot"></span>Past tickets</div></div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">It does the rest</div>
+        <div class="step-timing">Step 3 · From week 1</div>
+        <div class="step-title">Answers, escalates, improves</div>
+        <div class="step-desc">70% of tickets handled automatically. Anything tricky gets escalated with the full conversation and a draft reply ready.</div>
+        <div class="step-visual"><div class="step-tag"><span class="dot"></span>Auto-resolve</div><div class="step-tag"><span class="dot"></span>Smart escalation</div><div class="step-tag"><span class="dot"></span>Gets better over time</div></div>
+      </div>
+    </div>
+    <div class="setup-time">⚡ Design partners go live the same day we talk</div>
+  </div>
+</section>
+
+<!-- ═══ WHY AEGION ═══ -->
+<section id="why-aegion">
+  <div class="wrap">
+    <div class="why-header">
+      <span class="section-label" style="display:block;text-align:center;">Why Aegion</span>
+      <h2 style="text-align:center;">Your helpdesk already has AI.<br><em>It just doesn't reach your customers.</em></h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center;">Fin and Freddy live inside a portal. Your customers are in Slack and WhatsApp. That's the gap.</p>
+    </div>
+    <div class="objection-grid">
+      <div class="objection-card">
+        <span class="obj-tag helpdesk">vs Helpdesk AI add-ons</span>
+        <h3>Works where your customers already are — not where you wish they'd go.</h3>
+        <p>Intercom Fin and Freshdesk Freddy require customers to use their portal. B2B customers on Slack Connect or WhatsApp aren't doing that.</p>
+        <div class="obj-highlight">$299 flat vs $300–600/mo at 300 tickets on per-resolution pricing. You also get channels they can't touch.</div>
+      </div>
+      <div class="objection-card">
+        <span class="obj-tag chatgpt">vs Building it yourself</span>
+        <h3>You could build this. It takes one engineer and three months you don't have.</h3>
+        <p>Generic LLMs have no escalation logic, no system integrations, and will make things up confidently. Aegion is already built — guardrails, integrations, and all.</p>
+        <div class="obj-highlight">We set it up for you as a design partner. You don't write a line of code or configure a single thing.</div>
+      </div>
+    </div>
+    <div class="comp-label">Head to head: Aegion vs Helpdesk AI add-ons</div>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead><tr><th></th><th class="highlight">Aegion</th><th>Intercom Fin / Freshdesk Freddy</th></tr></thead>
+        <tbody>
+          <tr><td>Works in Slack Connect channels</td><td class="highlight"><span class="check">✓</span></td><td><span class="cross">—</span></td></tr>
+          <tr><td>Works in WhatsApp & Telegram</td><td class="highlight"><span class="check">✓</span></td><td><span class="cross">—</span></td></tr>
+          <tr><td>Flat predictable pricing</td><td class="highlight"><span class="check">✓ $299/mo</span></td><td><span class="partial">$0.99–1.99 per resolution</span></td></tr>
+          <tr><td>No new dashboard for your team</td><td class="highlight"><span class="check">✓</span></td><td><span class="partial">Requires helpdesk portal</span></td></tr>
+          <tr><td>Smart escalation with full context</td><td class="highlight"><span class="check">✓</span></td><td><span class="partial">Partial</span></td></tr>
+          <tr><td>Set up in hours, not weeks</td><td class="highlight"><span class="check">✓ Same day</span></td><td><span class="partial">Days to weeks of config</span></td></tr>
+          <tr><td>Works without a helpdesk at all</td><td class="highlight"><span class="check">✓</span></td><td><span class="cross">Requires their platform</span></td></tr>
+        </tbody>
+      </table>
+      <p class="comp-caveat">5+ dedicated agents on a helpdesk with no Slack/WhatsApp traffic? We're probably not the right fit — and we'll say so on the call.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section class="surface" id="pricing">
+  <div class="wrap" style="text-align:center;">
+    <span class="section-label">Pricing</span>
+    <h2>Less than a part-time VA.<br><em>Available 24/7.</em></h2>
+    <div class="pricing-anchor" style="margin:0 auto 48px;">
+      <span>A dedicated support VA costs</span><strong>$700–1,500/mo</strong><span class="vs">vs</span><span>Aegion starts at</span><strong style="color:var(--orange);">$299/mo flat</strong>
+    </div>
+    <div class="pricing-grid" style="margin:0 auto;">
+      <div class="price-card featured">
+        <div class="price-badge">Design Partner — 1 year free</div>
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">$299<span>/mo</span></div>
+        <div class="price-period">flat always · no per-ticket</div>
+        <div class="price-divider"></div>
+        <div class="price-feats">
+          <div class="price-feat">Slack + WhatsApp + Email</div>
+          <div class="price-feat">We do the full setup for you</div>
+          <div class="price-feat">Trained on your docs, voice, policies</div>
+          <div class="price-feat">Smart escalation — full context passed</div>
+          <div class="price-feat">Gets smarter with every ticket</div>
+          <div class="price-feat">If it doesn't work, you pay nothing</div>
+        </div>
+        <a href="https://calendly.com" target="_blank" class="price-btn solid">Claim a design partner spot</a>
+        <div class="price-trial">Free for 1 year as a design partner</div>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Scale</div>
+        <div class="price-amount" style="font-size:32px;line-height:1.2;">Custom</div>
+        <div class="price-period">high volume · custom workflows</div>
+        <div class="price-divider"></div>
+        <div class="price-feats">
+          <div class="price-feat">500+ tickets/month</div>
+          <div class="price-feat">Unlimited channels</div>
+          <div class="price-feat">Priority support & success manager</div>
+          <div class="price-feat">Custom flat pricing — always predictable</div>
+        </div>
+        <a href="https://calendly.com" target="_blank" class="price-btn ghost">Talk to us</a>
+        <div class="price-trial">White-glove setup included</div>
+      </div>
+    </div>
+    <div class="cost-compare">
+      <div class="cost-col"><div class="cost-col-label">Support VA</div><div class="cost-col-price">$700–1,500</div><div class="cost-col-sub">per month · 5 days · 8 hrs</div></div>
+      <div class="cost-col"><div class="cost-col-label">Helpdesk AI add-on</div><div class="cost-col-price">$300–600</div><div class="cost-col-sub">at 300 tickets ($0.99–1.99 each)</div></div>
+      <div class="cost-col aegion"><div class="cost-col-label">Aegion</div><div class="cost-col-price highlight">$299</div><div class="cost-col-sub">flat · 24/7 · no per-ticket fees</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section>
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-label">FAQ</span>
+      <h2>Questions we hear <em>on every call.</em></h2>
+      <p class="section-sub" style="margin:0 auto;font-size:14px;">Still have a question? <a href="mailto:hello@aegion.ai" style="color:var(--orange);font-weight:600;">Contact us →</a></p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open"><button class="faq-q">My helpdesk already has AI. Why do I need this?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Helpdesk AI (Intercom Fin, Freshdesk Freddy) works inside one tool and charges $0.99–$1.99 per resolution. It doesn't touch Slack or WhatsApp. Aegion is $299 flat and works wherever your customers reach you — including channels they'll never file a ticket on.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Can't I just use ChatGPT for this?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">You'd be building an agent from scratch — no system integrations, no escalation logic, no guardrails against hallucinations. Aegion is that agent, already built. It knows your product, queries your systems, and knows exactly when to stop and hand off to a human.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Is this just another chatbot?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">No. Chatbots match keywords. Aegion understands full conversation context, queries your live systems, responds in your brand voice, and escalates with full context when it's not confident. It's the difference between a script and a colleague who knows your product.</div></div></div>
+      <div class="faq-item"><button class="faq-q">How fast is setup?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">For design partners, we do the setup for you. Most go live the same day. You share your docs, we handle the rest. No IT project, no migration sprint.</div></div></div>
+      <div class="faq-item"><button class="faq-q">What happens when it gets something wrong?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">It escalates — with everything your team needs already packaged: full conversation, matched KB articles, and a suggested reply. You set the confidence threshold. Start conservative, loosen as trust builds.</div></div></div>
+      <div class="faq-item"><button class="faq-q">What if my volume grows past 300 tickets?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">We move you to a custom flat plan based on volume. Always a flat number — never per-resolution fees. No surprise invoices on a busy month.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<div class="final-cta-section" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;right:-20px;top:-10px;opacity:0.15;transform:rotate(18deg) scale(1.3);pointer-events:none;"><svg width="160" height="130" viewBox="0 0 180 148" fill="none"><path d="M0 28 C0 20 6 14 14 14 L70 14 L82 2 C84 0 87 0 90 0 L166 0 C174 0 180 6 180 14 L180 134 C180 142 174 148 166 148 L14 148 C6 148 0 142 0 134 Z" fill="url(#fcf1)"/><path d="M0 34 L180 34 L180 134 C180 142 174 148 166 148 L14 148 C6 148 0 142 0 134 Z" fill="url(#fcf2)" opacity="0.9"/><defs><linearGradient id="fcf1" x1="0" y1="0" x2="180" y2="148" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F1AC5F"/><stop offset="50%" stop-color="#DDB1CF"/><stop offset="100%" stop-color="#B0D0F0"/></linearGradient><linearGradient id="fcf2" x1="0" y1="34" x2="180" y2="148" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F1AC5F" stop-opacity="0.9"/><stop offset="100%" stop-color="#B0D0F0" stop-opacity="0.9"/></linearGradient></defs></svg></div>
+  <div style="position:absolute;left:-40px;bottom:-10px;opacity:0.1;transform:rotate(-15deg) scale(1.5);pointer-events:none;"><svg width="160" height="130" viewBox="0 0 180 148" fill="none"><path d="M0 28 C0 20 6 14 14 14 L70 14 L82 2 C84 0 87 0 90 0 L166 0 C174 0 180 6 180 14 L180 134 C180 142 174 148 166 148 L14 148 C6 148 0 142 0 134 Z" fill="url(#fcf3)"/><path d="M0 34 L180 34 L180 134 C180 142 174 148 166 148 L14 148 C6 148 0 142 0 134 Z" fill="url(#fcf4)" opacity="0.9"/><defs><linearGradient id="fcf3" x1="0" y1="0" x2="180" y2="148" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F1AC5F"/><stop offset="50%" stop-color="#DDB1CF"/><stop offset="100%" stop-color="#B0D0F0"/></linearGradient><linearGradient id="fcf4" x1="0" y1="34" x2="180" y2="148" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F1AC5F" stop-opacity="0.9"/><stop offset="100%" stop-color="#B0D0F0" stop-opacity="0.9"/></linearGradient></defs></svg></div>
+  <div class="wrap" style="position:relative;z-index:1;">
+    <h2 style="max-width:560px;margin:0 auto 16px;">We'll set it up on your queue. You watch it work. <em>Free for a year.</em></h2>
+    <p class="section-sub" style="margin:0 auto 36px;text-align:center;">30-minute call. Live on your actual support history. No deck. No demo environment. If it doesn't work the way we promise — you pay nothing.</p>
+    <div class="final-ctas">
+      <a href="https://calendly.com" target="_blank" class="hero-cta-primary">Claim a design partner spot →</a>
+      <a href="https://calendly.com" target="_blank" class="hero-cta-ghost">Talk to our team</a>
+    </div>
+    <div class="final-hints">
+      <span class="fhint">4 spots remaining</span>
+      <span class="fhint">We do the full setup</span>
+      <span class="fhint">Free for 1 year</span>
+      <span class="fhint">No payment until satisfied</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="#" style="display:flex;align-items:center;gap:9px;color:var(--white);">
+          <div class="nav-logo-mark"><svg viewBox="0 0 90 72" fill="none"><circle cx="52" cy="17" r="17" fill="white"/><circle cx="25" cy="54" r="20" fill="white"/><path d="M47.6 13.8 L56.4 20.2 L29.4 57.2 L20.6 50.8 Z" fill="white"/><circle cx="72" cy="52" r="13" stroke="white" stroke-width="5" fill="none"/></svg></div>
+          <span class="footer-logo-text">Aegion</span>
+        </a>
+        <p class="footer-tagline">AI support that lives where your customers already are.</p>
+      </div>
+      <div class="footer-col"><h4>Product</h4><a href="#">Features</a><a href="#">Channels</a><a href="#">Security</a><a href="#">Pricing</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Blog</a><a href="#">Careers</a><a href="#">Contact</a></div>
+      <div class="footer-col"><h4>Legal</h4><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Aegion. All rights reserved. Built by Aroha Labs.</span>
+      <span>hello@aegion.ai</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════
+   AEGION ANIMATION ENGINE
+══════════════════════════════════ */
+
+const delay = ms => new Promise(r => setTimeout(r, ms));
+
+function show(el, animClass, duration = 400) {
+  el.style.opacity = '0';
+  el.style.animation = 'none';
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      el.style.animation = '';
+      el.style.opacity   = '';
+      el.classList.add(animClass);
+    });
+  });
+}
+
+function injectAndAnimate(container, html, animStyle, removeAfter = false) {
+  const div = document.createElement('div');
+  div.innerHTML = html;
+  const el = div.firstElementChild;
+  el.style.cssText += `opacity:0; animation: ${animStyle};`;
+  el.style.animationFillMode = 'both';
+  container.appendChild(el);
+  if (removeAfter) setTimeout(() => el.remove(), removeAfter);
+  return el;
+}
+
+// ── SLACK ANIMATION ───────────────────────────────────────
+async function animateSlack() {
+  const panel = document.getElementById('panel-slack');
+  if (!panel) return;
+
+  const msgs = panel.querySelectorAll('.slack-msg');
+  const resolved = panel.querySelectorAll('.slack-resolved');
+  const badge = panel.querySelector('.slack-ch-badge');
+  msgs.forEach(m => { m.style.opacity = '0'; m.style.animation = 'none'; });
+  resolved.forEach(r => { r.style.opacity = '0'; });
+  if (badge) { badge.style.opacity = '0'; }
+
+  await delay(300);
+
+  if (badge) {
+    badge.style.opacity = '1';
+    badge.style.animation = 'fadeUp .3s both, badgePing 1s .3s ease-out';
+  }
+
+  await delay(500);
+  if (msgs[0]) { msgs[0].style.animation = 'msgIn .4s cubic-bezier(.22,1,.36,1) both'; msgs[0].style.opacity = '1'; }
+
+  await delay(900);
+  const slackMsgs = panel.querySelector('.slack-msgs');
+  const typingRow = document.createElement('div');
+  typingRow.className = 'slack-msg';
+  typingRow.style.animation = 'msgIn .3s both';
+  typingRow.innerHTML = `<div class="slack-av" style="background:#F1AC5F;color:#000;">A</div><div class="slack-msg-body"><div class="slack-msg-meta"><span class="slack-msg-name">Aegion</span><span class="slack-ai-tag">AI Agent</span></div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+  slackMsgs.appendChild(typingRow);
+  slackMsgs.scrollTop = slackMsgs.scrollHeight;
+
+  await delay(1400);
+  typingRow.remove();
+
+  if (msgs[1]) { msgs[1].style.animation = 'msgIn .4s cubic-bezier(.22,1,.36,1) both'; msgs[1].style.opacity = '1'; slackMsgs.scrollTop = slackMsgs.scrollHeight; }
+  await delay(500);
+  if (resolved[0]) { resolved[0].style.animation = 'resolvedIn .4s cubic-bezier(.34,1.56,.64,1) both'; resolved[0].style.opacity = '1'; }
+
+  await delay(1200);
+  if (msgs[2]) { msgs[2].style.animation = 'msgIn .4s cubic-bezier(.22,1,.36,1) both'; msgs[2].style.opacity = '1'; slackMsgs.scrollTop = slackMsgs.scrollHeight; }
+
+  await delay(900);
+  const typingRow2 = document.createElement('div');
+  typingRow2.className = 'slack-msg';
+  typingRow2.style.animation = 'msgIn .3s both';
+  typingRow2.innerHTML = `<div class="slack-av" style="background:#F1AC5F;color:#000;">A</div><div class="slack-msg-body"><div class="slack-msg-meta"><span class="slack-msg-name">Aegion</span><span class="slack-ai-tag">AI Agent</span></div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+  slackMsgs.appendChild(typingRow2);
+  slackMsgs.scrollTop = slackMsgs.scrollHeight;
+
+  await delay(1200);
+  typingRow2.remove();
+
+  if (msgs[3]) { msgs[3].style.animation = 'msgIn .4s cubic-bezier(.22,1,.36,1) both'; msgs[3].style.opacity = '1'; slackMsgs.scrollTop = slackMsgs.scrollHeight; }
+  await delay(400);
+  if (resolved[1]) { resolved[1].style.animation = 'resolvedIn .4s cubic-bezier(.34,1.56,.64,1) both'; resolved[1].style.opacity = '1'; }
+}
+
+// ── WHATSAPP ANIMATION ────────────────────────────────────
+async function animateWhatsApp() {
+  const panel = document.getElementById('panel-whatsapp');
+  if (!panel) return;
+
+  const bubbles = panel.querySelectorAll('.wa-bubble');
+  bubbles.forEach(b => { b.style.opacity = '0'; b.style.animation = 'none'; });
+  const waBg = panel.querySelector('.wa-bg');
+  const dateSep = panel.querySelector('.wa-date-sep');
+  if (dateSep) { dateSep.style.opacity = '0'; dateSep.style.animation = 'none'; }
+
+  await delay(300);
+
+  if (dateSep) { dateSep.style.animation = 'fadeUp .4s both'; dateSep.style.opacity = '1'; }
+
+  await delay(400);
+  if (bubbles[0]) { bubbles[0].style.animation = 'bubblePop .45s cubic-bezier(.34,1.56,.64,1) both'; bubbles[0].style.opacity = '1'; }
+
+  await delay(1000);
+  const typingEl = document.createElement('div');
+  typingEl.style.cssText = 'align-self:flex-start;animation:fadeUp .3s both;';
+  typingEl.innerHTML = `<div class="wa-typing"><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div></div>`;
+  waBg.appendChild(typingEl);
+  waBg.scrollTop = waBg.scrollHeight;
+
+  await delay(800);
+  typingEl.remove();
+
+  if (bubbles[1]) { bubbles[1].style.animation = 'bubblePop .4s cubic-bezier(.34,1.56,.64,1) both'; bubbles[1].style.opacity = '1'; waBg.scrollTop = waBg.scrollHeight; }
+
+  await delay(600);
+  const agentTyping = document.createElement('div');
+  agentTyping.style.cssText = 'align-self:flex-start;animation:fadeUp .3s both;';
+  agentTyping.innerHTML = `<div class="wa-typing"><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div></div>`;
+  waBg.appendChild(agentTyping);
+  waBg.scrollTop = waBg.scrollHeight;
+
+  await delay(1300);
+  agentTyping.remove();
+
+  if (bubbles[2]) { bubbles[2].style.animation = 'bubblePop .45s cubic-bezier(.34,1.56,.64,1) both'; bubbles[2].style.opacity = '1'; waBg.scrollTop = waBg.scrollHeight; }
+
+  await delay(900);
+  const userTyping2 = document.createElement('div');
+  userTyping2.style.cssText = 'align-self:flex-end;animation:fadeUp .3s both;';
+  userTyping2.innerHTML = `<div class="wa-typing" style="background:#D9FDD3;border-radius:8px 0 8px 8px;"><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div></div>`;
+  waBg.appendChild(userTyping2);
+  waBg.scrollTop = waBg.scrollHeight;
+  await delay(700);
+  userTyping2.remove();
+
+  if (bubbles[3]) { bubbles[3].style.animation = 'bubblePop .4s cubic-bezier(.34,1.56,.64,1) both'; bubbles[3].style.opacity = '1'; waBg.scrollTop = waBg.scrollHeight; }
+
+  await delay(600);
+  const agentTyping2 = document.createElement('div');
+  agentTyping2.style.cssText = 'align-self:flex-start;animation:fadeUp .3s both;';
+  agentTyping2.innerHTML = `<div class="wa-typing"><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div><div class="wa-typing-dot"></div></div>`;
+  waBg.appendChild(agentTyping2);
+  waBg.scrollTop = waBg.scrollHeight;
+  await delay(1000);
+  agentTyping2.remove();
+
+  if (bubbles[4]) { bubbles[4].style.animation = 'bubblePop .45s cubic-bezier(.34,1.56,.64,1) both'; bubbles[4].style.opacity = '1'; waBg.scrollTop = waBg.scrollHeight; }
+}
+
+// ── EMAIL ANIMATION ───────────────────────────────────────
+async function animateEmail() {
+  const panel = document.getElementById('panel-email');
+  if (!panel) return;
+
+  const emailRows = panel.querySelectorAll('.email-nav-item');
+  const emailOpen = panel.querySelector('[data-email-open]');
+  const emailReply = panel.querySelector('[data-email-reply]');
+  const resolvedTag = panel.querySelector('[data-resolved-tag]');
+  const cursorEl = panel.querySelector('[data-cursor]');
+
+  emailRows.forEach(r => { r.style.opacity = '0'; r.style.animation = 'none'; });
+  if (emailOpen) { emailOpen.style.opacity = '0'; emailOpen.style.animation = 'none'; }
+  if (emailReply) { emailReply.style.opacity = '0'; emailReply.style.maxHeight = '0'; emailReply.style.overflow = 'hidden'; }
+  if (resolvedTag) resolvedTag.style.opacity = '0';
+  if (cursorEl) cursorEl.style.display = 'inline-block';
+
+  await delay(200);
+
+  emailRows.forEach((r, i) => {
+    setTimeout(() => {
+      r.style.animation = `slideInLeft .35s ${i * 80}ms cubic-bezier(.22,1,.36,1) both`;
+      r.style.opacity = '1';
+    }, i * 80);
+  });
+
+  await delay(600);
+  if (emailOpen) { emailOpen.style.animation = 'fadeUp .4s both'; emailOpen.style.opacity = '1'; }
+
+  await delay(700);
+  const customerMsg = panel.querySelector('[data-customer-msg]');
+  if (customerMsg) { customerMsg.style.opacity = '0'; customerMsg.style.animation = 'msgIn .4s both'; customerMsg.style.opacity = '1'; }
+
+  await delay(800);
+  const agentArea = panel.querySelector('[data-agent-area]');
+  if (agentArea) {
+    const typingDiv = document.createElement('div');
+    typingDiv.style.cssText = 'padding:12px 0; animation: fadeUp .3s both;';
+    typingDiv.innerHTML = `<div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:30px;height:30px;border-radius:50%;background:#F1AC5F;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#000;flex-shrink:0;">A</div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+    agentArea.appendChild(typingDiv);
+    agentArea.scrollTop = agentArea.scrollHeight;
+    await delay(1600);
+    typingDiv.remove();
+  }
+
+  if (emailReply) {
+    emailReply.style.overflow = '';
+    emailReply.style.animation = 'msgIn .5s cubic-bezier(.22,1,.36,1) both';
+    emailReply.style.opacity = '1';
+    emailReply.style.maxHeight = '600px';
+    if (agentArea) agentArea.scrollTop = agentArea.scrollHeight;
+  }
+
+  await delay(500);
+  if (resolvedTag) { resolvedTag.style.animation = 'resolvedIn .4s cubic-bezier(.34,1.56,.64,1) both'; resolvedTag.style.opacity = '1'; }
+  await delay(400);
+  if (cursorEl) cursorEl.style.display = 'none';
+}
+
+// ── INTERCOM ANIMATION ────────────────────────────────────
+async function animateIntercom() {
+  const panel = document.getElementById('panel-intercom');
+  if (!panel) return;
+
+  const convItems = panel.querySelectorAll('[data-conv-item]');
+  const resolvedBadge = panel.querySelector('[data-intercom-resolved]');
+  const agentBubble = panel.querySelector('[data-agent-bubble]');
+  const chatBubbles = panel.querySelectorAll('[data-chat-bubble]');
+
+  convItems.forEach(c => { c.style.opacity = '0'; c.style.animation = 'none'; });
+  chatBubbles.forEach(b => { b.style.opacity = '0'; b.style.animation = 'none'; });
+  if (resolvedBadge) resolvedBadge.style.opacity = '0';
+  if (agentBubble) agentBubble.style.opacity = '0';
+
+  await delay(200);
+
+  convItems.forEach((item, i) => {
+    setTimeout(() => {
+      item.style.animation = `intercomSlide .4s ${i * 120}ms cubic-bezier(.22,1,.36,1) both`;
+      item.style.opacity = '1';
+    }, i * 120);
+  });
+
+  await delay(700);
+  if (chatBubbles[0]) { chatBubbles[0].style.animation = 'bubblePop .4s cubic-bezier(.34,1.56,.64,1) both'; chatBubbles[0].style.opacity = '1'; }
+
+  await delay(700);
+  const chatArea = panel.querySelector('[data-chat-area]');
+  if (chatArea) {
+    const typingBubble = document.createElement('div');
+    typingBubble.style.cssText = 'align-self:flex-end;animation:fadeUp .3s both;';
+    typingBubble.innerHTML = `<div style="background:#F1AC5F;border-radius:10px 0 10px 10px;padding:10px 14px;"><div style="font-size:9px;font-weight:700;margin-bottom:4px;opacity:.6;">Aegion · AI Agent</div><div style="display:flex;gap:4px;"><div class="typing-dot" style="background:#000;opacity:.5;"></div><div class="typing-dot" style="background:#000;opacity:.5;animation-delay:.14s;"></div><div class="typing-dot" style="background:#000;opacity:.5;animation-delay:.28s;"></div></div></div>`;
+    chatArea.appendChild(typingBubble);
+    chatArea.scrollTop = chatArea.scrollHeight;
+    await delay(1200);
+    typingBubble.remove();
+  }
+
+  if (agentBubble) { agentBubble.style.animation = 'bubblePop .45s cubic-bezier(.34,1.56,.64,1) both'; agentBubble.style.opacity = '1'; if (chatArea) chatArea.scrollTop = chatArea.scrollHeight; }
+
+  await delay(400);
+  if (resolvedBadge) { resolvedBadge.style.animation = 'resolvedIn .4s cubic-bezier(.34,1.56,.64,1) both'; resolvedBadge.style.opacity = '1'; }
+}
+
+// ── STATS ─────────────────────────────────────────────────
+function animateStats() {
+  const stats = document.querySelectorAll('.mock-stat-n');
+  stats.forEach((s, i) => {
+    s.style.opacity = '1';
+    s.style.transform = 'translateY(0)';
+  });
+}
+
+// ── TAB SWITCHING ─────────────────────────────────────────
+const animators = {
+  'panel-slack':    animateSlack,
+  'panel-whatsapp': animateWhatsApp,
+  'panel-email':    animateEmail,
+  'panel-intercom': animateIntercom,
+};
+
+document.querySelectorAll('.sits-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.target;
+    if (!target) return;
+    document.querySelectorAll('.sits-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.mock-panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById(target);
+    if (panel) panel.classList.add('active');
+    if (animators[target]) animators[target]();
+  });
+});
+
+// ── FAQ ───────────────────────────────────────────────────
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ── INIT ──────────────────────────────────────────────────
+window.addEventListener('load', () => {
+  animateStats();
+  setTimeout(animateSlack, 800);
+});
+
+// ── RING PARTICLES ────────────────────────────────────────
+if ('paintWorklet' in CSS) {
+  CSS.paintWorklet.addModule('https://unpkg.com/css-houdini-ringparticles/dist/ringparticles.js');
+
+  const hero = document.querySelector('.hero');
+  const canvases = [
+    document.getElementById('hero-particles'),
+    document.getElementById('hero-particles-pink'),
+    document.getElementById('hero-particles-blue'),
+  ].filter(Boolean);
+
+  function setRingPos(rx, ry) {
+    canvases.forEach(c => {
+      c.style.setProperty('--ring-x', rx);
+      c.style.setProperty('--ring-y', ry);
+    });
+  }
+
+  if (hero) {
+    hero.addEventListener('pointermove', (e) => {
+      setRingPos(
+        (e.clientX / window.innerWidth)  * 100,
+        (e.clientY / window.innerHeight) * 100
+      );
+    });
+    hero.addEventListener('pointerleave', () => setRingPos(50, 50));
+  }
+}
+</script>
+</body>
+</html>
