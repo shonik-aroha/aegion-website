@@ -691,23 +691,80 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);paddin
       <span class="sec-lbl">Things we hear all the time</span>
       <h2>We've heard your concerns.<br><em>Here's the honest answer.</em></h2>
     </div>
-    <div class="objection-grid">
-      <div class="obj-card rv d1">
-        <div class="obj-q" data-label="The objection">"We already have Fin / Freddy / Zendesk AI. Why switch?"</div>
-        <p class="obj-a">You don't have to switch. <strong>Marvin sits on top of your existing helpdesk.</strong> Keep everything. Just replace the AI layer.</p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:48px;" class="rv">
+
+      <!-- Row 1 -->
+      <div style="display:grid;grid-template-columns:1fr 24px 1fr;gap:0;align-items:stretch;background:var(--white);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;">
+        <!-- Before -->
+        <div style="padding:28px 28px 28px 28px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px;display:flex;align-items:center;gap:7px;"><span style="width:16px;height:16px;border-radius:50%;background:#FEE2E2;display:flex;align-items:center;justify-content:center;font-size:9px;">✕</span>The frustration</div>
+          <div style="font-family:var(--serif);font-size:17px;color:var(--black);line-height:1.3;margin-bottom:10px;">"We already have Fin / Freddy / Zendesk AI. Why switch?"</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.65;padding:10px 12px;background:var(--light);border-radius:10px;border-left:3px solid #FCA5A5;font-style:italic;">"It hallucinates, doesn't learn, and I'm paying $0.99 per resolution whether it works or not."</div>
+        </div>
+        <!-- Divider arrow -->
+        <div style="display:flex;align-items:center;justify-content:center;background:var(--surface);border-left:1px solid var(--border);border-right:1px solid var(--border);">
+          <div style="font-size:16px;color:var(--orange);">→</div>
+        </div>
+        <!-- After -->
+        <div style="padding:28px;background:rgba(241,172,95,.03);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px;display:flex;align-items:center;gap:7px;"><span style="width:16px;height:16px;border-radius:50%;background:rgba(52,208,88,.15);display:flex;align-items:center;justify-content:center;font-size:9px;color:#2d7a3a;">✓</span>With Marvin</div>
+          <div style="font-family:var(--serif);font-size:17px;color:var(--black);line-height:1.3;margin-bottom:10px;">You don't have to switch. Marvin sits on top — just replace the AI layer inside it.</div>
+          <div style="font-size:13px;color:#2d7a3a;line-height:1.65;padding:10px 12px;background:rgba(52,208,88,.06);border-radius:10px;border-left:3px solid rgba(52,208,88,.4);">Delphi Intelligence kept Intercom. Added Marvin. Went from 0% to <strong>80% autonomous resolution in 3 weeks.</strong></div>
+        </div>
       </div>
-      <div class="obj-card rv d2">
-        <div class="obj-q" data-label="The objection">"AI bots have failed us before. We don't trust them."</div>
-        <p class="obj-a"><strong>Marvin never guesses.</strong> Below its threshold, it escalates with full context — not a dead end. Learns from every correction.</p>
+
+      <!-- Row 2 -->
+      <div style="display:grid;grid-template-columns:1fr 24px 1fr;gap:0;align-items:stretch;background:var(--white);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;">
+        <div style="padding:28px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px;display:flex;align-items:center;gap:7px;"><span style="width:16px;height:16px;border-radius:50%;background:#FEE2E2;display:flex;align-items:center;justify-content:center;font-size:9px;">✕</span>The frustration</div>
+          <div style="font-family:var(--serif);font-size:17px;color:var(--black);line-height:1.3;margin-bottom:10px;">"AI bots have failed us before. We don't trust them."</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.65;padding:10px 12px;background:var(--light);border-radius:10px;border-left:3px solid #FCA5A5;font-style:italic;">"Every time it escalates, my agents start from scratch. Zero context."</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;background:var(--surface);border-left:1px solid var(--border);border-right:1px solid var(--border);">
+          <div style="font-size:16px;color:var(--orange);">→</div>
+        </div>
+        <div style="padding:28px;background:rgba(241,172,95,.03);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px;display:flex;align-items:center;gap:7px;"><span style="width:16px;height:16px;border-radius:50%;background:rgba(52,208,88,.15);display:flex;align-items:center;justify-content:center;font-size:9px;color:#2d7a3a;">✓</span>With Marvin</div>
+          <div style="font-family:var(--serif);font-size:17px;color:var(--black);line-height:1.3;margin-bottom:10px;">Marvin never guesses. Below its threshold, it escalates with full context — conversation, intent, draft reply.</div>
+          <div style="font-size:13px;color:#2d7a3a;line-height:1.65;padding:10px 12px;background:rgba(52,208,88,.06);border-radius:10px;border-left:3px solid rgba(52,208,88,.4);">Your agent opens the ticket already knowing what the customer wants and what to say. <strong>No repeat conversations.</strong></div>
+        </div>
       </div>
-      <div class="obj-card rv d3">
-        <div class="obj-q" data-label="The objection">"We don't have time to set it up and manage it."</div>
-        <p class="obj-a"><strong>We handle setup entirely.</strong> Point us at your helpdesk and KB — live in hours. Your team just reviews escalations.</p>
+
+      <!-- Row 3 -->
+      <div style="display:grid;grid-template-columns:1fr 24px 1fr;gap:0;align-items:stretch;background:var(--white);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;">
+        <div style="padding:28px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px;display:flex;align-items:center;gap:7px;"><span style="width:16px;height:16px;border-radius:50%;background:#FEE2E2;display:flex;align-items:center;justify-content:center;font-size:9px;">✕</span>The frustration</div>
+          <div style="font-family:var(--serif);font-size:17px;color:var(--black);line-height:1.3;margin-bottom:10px;">"We don't have time to set it up and manage it."</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.65;padding:10px 12px;background:var(--light);border-radius:10px;border-left:3px solid #FCA5A5;font-style:italic;">"It learned from our docs once. It hasn't improved since."</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;background:var(--surface);border-left:1px solid var(--border);border-right:1px solid var(--border);">
+          <div style="font-size:16px;color:var(--orange);">→</div>
+        </div>
+        <div style="padding:28px;background:rgba(241,172,95,.03);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px;display:flex;align-items:center;gap:7px;"><span style="width:16px;height:16px;border-radius:50%;background:rgba(52,208,88,.15);display:flex;align-items:center;justify-content:center;font-size:9px;color:#2d7a3a;">✓</span>With Marvin</div>
+          <div style="font-family:var(--serif);font-size:17px;color:var(--black);line-height:1.3;margin-bottom:10px;">We handle the entire setup. Live in hours. Marvin improves automatically from every escalation your team handles.</div>
+          <div style="font-size:13px;color:#2d7a3a;line-height:1.65;padding:10px 12px;background:rgba(52,208,88,.06);border-radius:10px;border-left:3px solid rgba(52,208,88,.4);">Week 1 looks different from Week 6. <strong>No manual retraining. No doc updates.</strong> It learns on its own.</div>
+        </div>
       </div>
-      <div class="obj-card rv d4">
-        <div class="obj-q" data-label="The objection">"What if it hallucinates and damages customer relationships?"</div>
-        <p class="obj-a"><strong>You set the threshold.</strong> Marvin only sends what it's sure about. Sensitive topics are guardrailed — always escalated, never answered.</p>
+
+      <!-- Row 4 -->
+      <div style="display:grid;grid-template-columns:1fr 24px 1fr;gap:0;align-items:stretch;background:var(--white);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;">
+        <div style="padding:28px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px;display:flex;align-items:center;gap:7px;"><span style="width:16px;height:16px;border-radius:50%;background:#FEE2E2;display:flex;align-items:center;justify-content:center;font-size:9px;">✕</span>The frustration</div>
+          <div style="font-family:var(--serif);font-size:17px;color:var(--black);line-height:1.3;margin-bottom:10px;">"What if it hallucinates and damages customer relationships?"</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.65;padding:10px 12px;background:var(--light);border-radius:10px;border-left:3px solid #FCA5A5;font-style:italic;">"Customers don't say the bot is wrong. They just churn."</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;background:var(--surface);border-left:1px solid var(--border);border-right:1px solid var(--border);">
+          <div style="font-size:16px;color:var(--orange);">→</div>
+        </div>
+        <div style="padding:28px;background:rgba(241,172,95,.03);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px;display:flex;align-items:center;gap:7px;"><span style="width:16px;height:16px;border-radius:50%;background:rgba(52,208,88,.15);display:flex;align-items:center;justify-content:center;font-size:9px;color:#2d7a3a;">✓</span>With Marvin</div>
+          <div style="font-family:var(--serif);font-size:17px;color:var(--black);line-height:1.3;margin-bottom:10px;">You set the threshold. Marvin only sends what it's sure about. Sensitive topics are guardrailed — always escalated.</div>
+          <div style="font-size:13px;color:#2d7a3a;line-height:1.65;padding:10px 12px;background:rgba(52,208,88,.06);border-radius:10px;border-left:3px solid rgba(52,208,88,.4);">Your customers only ever get answers Marvin is confident about. <strong>Everything else goes to your team first.</strong></div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
